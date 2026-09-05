@@ -73,7 +73,9 @@ body {
   justify-content: flex-end;
   padding: 24px 24px 32px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .banner-top-row {
@@ -338,12 +340,12 @@ body {
   text-shadow: 0 0 8px rgba(225, 6, 0, 0.6);
 }
 
-/* --- Sección de Presentación Principal (2 Columnas: Descripción Izquierda, Círculo Foto Derecha) --- */
+/* --- Sección de Presentación Principal (2 Columnas: Descripción Izquierda, Carnet Derecha) --- */
 .hero-split-section {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
   width: 100%;
   margin: 10px 0 50px;
 }
@@ -457,10 +459,11 @@ body {
 .hero-carnet-col {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
-  padding: 10px;
+  padding: 0 10px;
   perspective: 1200px;
+  margin-top: -35px; /* Eleva el carnet más arriba hacia el banner */
 }
 
 .carnet-container {
@@ -477,19 +480,20 @@ body {
   transform: translateY(-6px) rotate(-1deg);
 }
 
-/* Cinta y Gancho del Carnet (Lanyard Clip) */
+/* Cinta y Gancho del Carnet (Lanyard Clip unido con el Banner) */
 .carnet-strap-holder {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   margin-bottom: -10px;
 }
 
 .carnet-strap {
-  width: 32px;
-  height: 28px;
+  width: 28px;
+  height: 70px;
+  margin-top: -50px;
   background: repeating-linear-gradient(
     45deg,
     #1e293b,
@@ -497,9 +501,24 @@ body {
     #0f172a 4px,
     #0f172a 8px
   );
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+  position: relative;
+}
+
+/* Remate / Conector sutil en la unión con el banner */
+.carnet-strap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3px;
+  right: -3px;
+  height: 6px;
+  background: linear-gradient(180deg, #64748b, #334155);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 .carnet-clip {
@@ -828,7 +847,7 @@ body {
   position: relative;
   z-index: 1;
   max-width: 1200px;
-  margin: 40px auto 80px;
+  margin: 24px auto 80px;
   padding: 0 24px;
 }
 
@@ -1265,7 +1284,12 @@ body {
   }
 
   .hero-carnet-col {
-    margin: 10px auto;
+    margin: 20px auto 10px;
+  }
+
+  .carnet-strap {
+    height: 32px;
+    margin-top: 0;
   }
 }
 
