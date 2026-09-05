@@ -1,5 +1,5 @@
-/* ===================================================
-   ESTILOS ESPECÍFICOS PARA LA PÁGINA DE PROYECTOS
+﻿/* ===================================================
+   ESTILOS ESPECÃFICOS PARA LA PÃGINA DE PROYECTOS
    (Minimalista, Glassmorphism & Cyberpunk Elegante)
    =================================================== */
 
@@ -13,7 +13,7 @@
   background-repeat: no-repeat;
 }
 
-/* Encabezado de la Sección de Proyectos en Index */
+/* Encabezado de la SecciÃ³n de Proyectos en Index */
 .projects-header-block {
   margin-bottom: 32px;
   display: flex;
@@ -30,7 +30,7 @@
   z-index: 1;
 }
 
-/* Filtros de Categorías Minimalistas */
+/* Filtros de CategorÃ­as Minimalistas */
 .projects-filter {
   display: flex;
   align-items: center;
@@ -55,15 +55,15 @@
 
 .filter-btn:hover {
   color: #ffffff;
-  border-color: rgba(0, 240, 255, 0.4);
+  border-color: rgba(225, 6, 0, 0.4);
   transform: translateY(-2px);
 }
 
 .filter-btn.active {
-  background: rgba(0, 240, 255, 0.12);
+  background: rgba(225, 6, 0, 0.12);
   color: var(--cyan-neon);
   border-color: var(--cyan-neon);
-  box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 12px rgba(225, 6, 0, 0.25);
 }
 
 /* Grid de Tarjetas de Proyectos */
@@ -87,9 +87,9 @@
 }
 
 .project-card:hover {
-  border-color: rgba(0, 240, 255, 0.4);
+  border-color: rgba(225, 6, 0, 0.4);
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(225, 6, 0, 0.15);
 }
 
 /* Contenedor de Imagen de Portada */
@@ -135,8 +135,8 @@
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--cyan-neon);
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  background: rgba(225, 6, 0, 0.08);
+  border: 1px solid rgba(225, 6, 0, 0.2);
   padding: 3px 8px;
   border-radius: 6px;
   letter-spacing: 0.5px;
@@ -218,7 +218,7 @@
 }
 
 /* ===================================================
-   MODAL DE VIDEO DEMOSTRACIÓN (2 COLUMNAS)
+   MODAL DE VIDEO DEMOSTRACIÃ“N (2 COLUMNAS)
    =================================================== */
 .demo-modal-overlay {
   position: fixed;
@@ -246,14 +246,14 @@
 
 .demo-modal-window {
   background: rgba(13, 16, 28, 0.95);
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  border: 1px solid rgba(225, 6, 0, 0.35);
   border-radius: 20px;
   max-width: 1050px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(225, 6, 0, 0.15);
   transform: scale(0.92) translateY(20px);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 36px 32px;
@@ -263,7 +263,7 @@
   transform: scale(1) translateY(0);
 }
 
-/* Botón de Cerrar Modal */
+/* BotÃ³n de Cerrar Modal */
 .modal-close-btn {
   position: absolute;
   top: 18px;
@@ -299,7 +299,7 @@
   align-items: center;
 }
 
-/* Columna Izquierda: Información */
+/* Columna Izquierda: InformaciÃ³n */
 .demo-info-col {
   display: flex;
   flex-direction: column;
@@ -310,8 +310,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  background: rgba(225, 6, 0, 0.08);
+  border: 1px solid rgba(225, 6, 0, 0.3);
   padding: 4px 12px;
   border-radius: 20px;
   font-family: 'Fira Code', monospace;
@@ -391,7 +391,7 @@
 }
 
 .demo-features-list li::before {
-  content: "▹";
+  content: "â–¹";
   color: var(--cyan-neon);
   font-size: 1rem;
 }

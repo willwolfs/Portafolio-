@@ -21,75 +21,148 @@ function playBeep(freq = 600, duration = 0.05) {
   osc.stop(audioCtx.currentTime + duration);
 }
 
-// 2. Fondo de Estrellas Interactivas (Canvas)
+// 2. Fondo Dinámico Formula 1 (Aerodinámica, Trazas de Velocidad y Chispas de Titanio)
 const canvas = document.getElementById('starfield');
 const ctx = canvas.getContext('2d');
 
-let stars = [];
-const STAR_COUNT = 80;
+let streaks = [];
+let sparks = [];
+const mouse = { x: -1000, y: -1000 };
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 
-function initStars() {
-  stars = [];
-  for (let i = 0; i < STAR_COUNT; i++) {
-    stars.push({
+// Inicializar Trazas Aerodinámicas y Chispas (Estética F1)
+function initF1Elements() {
+  streaks = [];
+  sparks = [];
+
+  const streakCount = Math.floor(window.innerWidth / 30);
+  for (let i = 0; i < streakCount; i++) {
+    streaks.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5 + 0.5,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4
+      len: Math.random() * 180 + 70,
+      speed: Math.random() * 4.5 + 2.5,
+      thickness: Math.random() * 1.8 + 0.8,
+      opacity: Math.random() * 0.55 + 0.25,
+      color: Math.random() > 0.18 ? (Math.random() > 0.45 ? '#e10600' : '#ff2626') : '#ffffff'
+    });
+  }
+
+  // Chispas de Titanio tipo F1 (Skid blocks en asfalto)
+  const sparkCount = Math.floor(window.innerWidth / 65);
+  for (let i = 0; i < sparkCount; i++) {
+    sparks.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.8 + 0.6,
+      vx: -(Math.random() * 4 + 2),
+      vy: (Math.random() - 0.5) * 1.2,
+      life: Math.random() * 100 + 40,
+      maxLife: 140,
+      color: Math.random() > 0.3 ? '#ff2626' : (Math.random() > 0.5 ? '#ff7a00' : '#ffffff')
     });
   }
 }
 
-function drawStars() {
+function drawF1Background() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#00f0ff';
 
-  for (let i = 0; i < stars.length; i++) {
-    const s = stars[i];
-    s.x += s.vx;
-    s.y += s.vy;
+  // 1. Trazas de Velocidad Aerodinámicas
+  for (let i = 0; i < streaks.length; i++) {
+    const s = streaks[i];
 
-    if (s.x < 0) s.x = canvas.width;
-    if (s.x > canvas.width) s.x = 0;
-    if (s.y < 0) s.y = canvas.height;
-    if (s.y > canvas.height) s.y = 0;
+    // Desvío aerodinámico con el cursor (efecto túnel de viento sobre chasis F1)
+    let dy = 0;
+    const distY = Math.abs(s.y - mouse.y);
+    const distX = Math.abs(s.x - mouse.x);
+    if (distX < 200 && distY < 100) {
+      dy = (s.y < mouse.y ? -1 : 1) * (1 - distY / 100) * 1.6;
+    }
+
+    s.x -= s.speed;
+    s.y += dy;
+
+    if (s.x + s.len < 0) {
+      s.x = canvas.width + Math.random() * 120;
+      s.y = Math.random() * canvas.height;
+      s.speed = Math.random() * 4.5 + 2.5;
+      s.len = Math.random() * 180 + 70;
+    }
+
+    // Gradiente dinámico de velocidad (cabeza brillante, estela difusa)
+    const grad = ctx.createLinearGradient(s.x, s.y, s.x + s.len, s.y);
+    if (s.color === '#ffffff') {
+      grad.addColorStop(0, `rgba(255, 255, 255, ${s.opacity * 0.9})`);
+      grad.addColorStop(0.3, `rgba(255, 60, 60, ${s.opacity * 0.5})`);
+      grad.addColorStop(1, 'rgba(225, 6, 0, 0)');
+    } else {
+      grad.addColorStop(0, `rgba(255, 38, 38, ${s.opacity})`);
+      grad.addColorStop(0.4, `rgba(225, 6, 0, ${s.opacity * 0.6})`);
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    }
 
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Conectar estrellas cercanas (Constelaciones)
-    for (let j = i + 1; j < stars.length; j++) {
-      const s2 = stars[j];
-      const dist = Math.hypot(s.x - s2.x, s.y - s2.y);
-      if (dist < 100) {
-        ctx.strokeStyle = `rgba(0, 240, 255, ${1 - dist / 100 * 0.8})`;
-        ctx.lineWidth = 0.5;
-        ctx.beginPath();
-        ctx.moveTo(s.x, s.y);
-        ctx.lineTo(s2.x, s2.y);
-        ctx.stroke();
-      }
-    }
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = s.thickness;
+    ctx.lineCap = 'round';
+    ctx.moveTo(s.x, s.y);
+    ctx.lineTo(s.x + s.len, s.y);
+    ctx.stroke();
   }
 
-  requestAnimationFrame(drawStars);
+  // 2. Chispas de Titanio F1
+  for (let i = 0; i < sparks.length; i++) {
+    const p = sparks[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    p.life--;
+
+    if (p.x < 0 || p.life <= 0) {
+      p.x = canvas.width + Math.random() * 50;
+      p.y = Math.random() * canvas.height;
+      p.vx = -(Math.random() * 4 + 2);
+      p.vy = (Math.random() - 0.5) * 1.2;
+      p.life = Math.random() * 100 + 40;
+    }
+
+    const alpha = Math.max(0, p.life / p.maxLife);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fillStyle = p.color === '#ffffff' 
+      ? `rgba(255, 255, 255, ${alpha * 0.9})` 
+      : (p.color === '#ff7a00' ? `rgba(255, 130, 20, ${alpha * 0.85})` : `rgba(255, 38, 38, ${alpha * 0.85})`);
+    ctx.shadowColor = '#e10600';
+    ctx.shadowBlur = 6;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  requestAnimationFrame(drawF1Background);
 }
 
 window.addEventListener('resize', () => {
   resizeCanvas();
-  initStars();
+  initF1Elements();
+});
+
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+window.addEventListener('mouseleave', () => {
+  mouse.x = -1000;
+  mouse.y = -1000;
 });
 
 resizeCanvas();
-initStars();
-drawStars();
+initF1Elements();
+drawF1Background();
+
 
 
 // 2. Control de Botones de Navegación Burbuja
