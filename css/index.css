@@ -1,19 +1,19 @@
 :root {
-  --bg-color: #030814;
-  --panel-bg: rgba(6, 18, 38, 0.78);
-  --navy-deep: #020612;
-  --navy-mid: #071933;
-  --navy-light: #0d284f;
-  --cyan-neon: #00d2ff; /* Cyan neón de oleaje */
-  --wave-cyan: #00d2ff;
-  --accent-cyan: #38bdf8;
-  --ferrari-yellow: #38bdf8; /* Ocean cyan highlight */
-  --racing-red: #0077b6;
-  --racing-red-glow: rgba(0, 210, 255, 0.35);
-  --accent-red: #00d2ff;
+  --bg-color: #060919;
+  --panel-bg: rgba(9, 16, 36, 0.8);
+  --miami-cyan: #00e5ff;
+  --miami-pink: #ff2a85;
+  --miami-purple: #8a2be2;
+  --miami-sunset: #ff7b00;
+  --cyan-neon: #00e5ff;
+  --accent-red: #ff2a85;
+  --accent-cyan: #00e5ff;
+  --ferrari-yellow: #00e5ff;
+  --racing-red: #ff2a85;
+  --racing-red-glow: rgba(255, 42, 133, 0.35);
   --text-main: #f0f6fc;
-  --text-muted: #8ca0ba;
-  --border-subtle: rgba(56, 189, 248, 0.12);
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(0, 229, 255, 0.12);
 }
 
 * {
@@ -27,32 +27,26 @@ html {
 }
 
 body {
-  background-color: #030814;
+  background-color: #060919;
   background-image: 
-    radial-gradient(ellipse at 80% 0%, rgba(13, 40, 80, 0.4) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 100%, rgba(0, 119, 182, 0.15) 0%, transparent 60%),
-    linear-gradient(180deg, #020612 0%, #051329 45%, #081b38 85%, #040d1c 100%);
+    radial-gradient(ellipse at 85% 10%, rgba(255, 42, 133, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(0, 229, 255, 0.16) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.08) 0%, transparent 65%),
+    radial-gradient(circle at 80% 80%, rgba(255, 123, 0, 0.09) 0%, transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: 'Fira Code', monospace;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Lienzo interactivo de Olas en Azul Marino */
-#waveCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-}
-
 /* --- Banner Superior --- */
 .channel-banner {
   background-image: 
-    linear-gradient(to bottom, rgba(2, 6, 16, 0.25) 0%, rgba(5, 18, 40, 0.55) 50%, rgba(3, 8, 20, 0.96) 100%),
+    linear-gradient(to bottom, rgba(6, 9, 25, 0.2) 0%, rgba(12, 16, 40, 0.5) 50%, rgba(6, 9, 25, 0.98) 100%),
     url('../image/pika2.jpg');
   background-size: cover;
   background-position: center;
@@ -560,26 +554,38 @@ body {
   color: #00ba7c;
 }
 
-/* Imagen Rectangular (Estilo X Tweet Image) */
+/* Imagen Circular (Estilo Retrato Miami) */
 .tweet-media-wrapper {
-  width: 100%;
-  border-radius: 14px;
+  width: 250px;
+  height: 250px;
+  margin: 14px auto;
+  border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #000000;
+  border: 3px solid rgba(0, 229, 255, 0.45);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25), 0 12px 30px rgba(0, 0, 0, 0.7);
+  background: #060919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+}
+
+.tweet-card:hover .tweet-media-wrapper {
+  border-color: #ff2a85;
+  box-shadow: 0 0 30px rgba(255, 42, 133, 0.4), 0 14px 35px rgba(0, 0, 0, 0.8);
+  transform: scale(1.02);
 }
 
 .tweet-rectangular-img {
   width: 100%;
-  height: auto;
-  max-height: 340px;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.35s ease;
 }
 
 .tweet-card:hover .tweet-rectangular-img {
-  transform: scale(1.015);
+  transform: scale(1.06);
 }
 
 /* Botones de Interacciones / Acciones */
