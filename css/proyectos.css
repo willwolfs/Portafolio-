@@ -66,49 +66,124 @@
   box-shadow: 0 0 12px rgba(225, 6, 0, 0.25);
 }
 
-/* Grid de Tarjetas de Proyectos */
+/* Grid de Tarjetas Bento Asimétrico */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
 }
 
-/* Tarjeta de Proyecto Minimalista */
+/* Tarjeta de Proyecto Aerodinámica (Estilo F1 Monocoque) */
 .project-card {
-  background: rgba(13, 16, 28, 0.7);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
+  background: rgba(13, 15, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px 6px 22px 6px; /* Corte asimétrico aerodinámico */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Franja superior estilo Livery Ferrari (Rosso Corsa + Giallo Modena) */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #e10600 0%, #ffcc00 55%, transparent 100%);
+  opacity: 0.65;
+  transition: all 0.3s ease;
+  z-index: 3;
 }
 
 .project-card:hover {
-  border-color: rgba(225, 6, 0, 0.4);
+  border-color: rgba(225, 6, 0, 0.45);
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(225, 6, 0, 0.15);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(225, 6, 0, 0.2);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  height: 3.5px;
+  background: linear-gradient(90deg, #e10600 0%, #ffcc00 45%, #ffffff 90%);
+}
+
+/* Dorsal de Carrera de Telemetría (01, 02, etc.) */
+.racing-dorsal {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.05);
+  letter-spacing: -1px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 2;
+  user-select: none;
+  line-height: 1;
+}
+
+.project-card:hover .racing-dorsal {
+  color: rgba(255, 204, 0, 0.2);
+  transform: scale(1.08) translateY(-2px);
+}
+
+/* Clases de Disposición Bento Asimétrica */
+.bento-hero {
+  grid-column: span 8;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+}
+
+.bento-tall {
+  grid-column: span 4;
+}
+
+.bento-medium {
+  grid-column: span 6;
 }
 
 /* Contenedor de Imagen de Portada */
 .project-thumb-wrap {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* Ratio 16:9 */
   overflow: hidden;
-  background: #111420;
+  background: #0d0f16;
+}
+
+.bento-hero .project-thumb-wrap {
+  padding-top: 0;
+  height: 100%;
+  min-height: 280px;
+}
+
+.bento-tall .project-thumb-wrap,
+.bento-medium .project-thumb-wrap {
+  padding-top: 56.25%; /* Ratio 16:9 */
 }
 
 .project-thumb {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  display: block;
+}
+
+.bento-tall .project-thumb,
+.bento-medium .project-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .project-card:hover .project-thumb {
@@ -117,11 +192,12 @@
 
 /* Detalles del Proyecto */
 .project-details {
-  padding: 22px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   gap: 12px;
+  justify-content: space-between;
 }
 
 .project-tags {
@@ -205,10 +281,29 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .bento-hero,
+  .bento-tall,
+  .bento-medium {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bento-hero .project-thumb-wrap {
+    min-height: auto;
+    padding-top: 56.25%;
+  }
+
+  .bento-hero .project-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .projects-section {

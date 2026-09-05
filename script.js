@@ -318,7 +318,7 @@ function initDemoModal() {
         projectCards.forEach(card => {
           const category = card.getAttribute('data-category');
           if (filter === 'all' || category === filter) {
-            card.style.display = 'flex';
+            card.style.display = '';
           } else {
             card.style.display = 'none';
           }
