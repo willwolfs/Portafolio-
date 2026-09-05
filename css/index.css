@@ -999,6 +999,97 @@ body {
   text-transform: uppercase;
 }
 
+/* Bloque de 3 Habilidades Clave */
+.skills-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 10px;
+  width: 100%;
+}
+
+.skill-highlight-card {
+  background: rgba(13, 18, 36, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-highlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan-neon), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-highlight-card:hover {
+  transform: translateY(-4px);
+  background: rgba(17, 24, 48, 0.9);
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.skill-highlight-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--cyan-neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.skill-highlight-card:hover .skill-card-icon {
+  background: var(--cyan-neon);
+  color: #040714;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.6);
+  transform: scale(1.06);
+}
+
+.skill-card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.skill-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+@media (max-width: 900px) {
+  .skills-highlight-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 .timeline-container {
   position: relative;
   max-width: 860px;
@@ -1007,7 +1098,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  border-left: 2px solid rgba(225, 6, 0, 0.25);
+  border-left: 2px solid rgba(0, 229, 255, 0.25);
 }
 
 .timeline-item {
@@ -1048,8 +1139,8 @@ body {
 
 .timeline-item:hover .timeline-content {
   background: rgba(13, 16, 28, 0.9);
-  border-color: rgba(225, 6, 0, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 16px rgba(225, 6, 0, 0.1);
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 229, 255, 0.12);
   transform: translateX(4px);
 }
 
@@ -1057,13 +1148,13 @@ body {
   font-family: 'Fira Code', monospace;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--ferrari-yellow);
+  color: var(--cyan-neon);
   letter-spacing: 1px;
 }
 
 .timeline-role {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.5px;
@@ -1095,17 +1186,17 @@ body {
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--cyan-neon);
-  background: rgba(225, 6, 0, 0.08);
-  border: 1px solid rgba(225, 6, 0, 0.2);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.22);
   padding: 4px 12px;
   border-radius: 12px;
   transition: all 0.2s ease;
 }
 
 .skill-pill:hover {
-  background: rgba(225, 6, 0, 0.2);
+  background: rgba(0, 229, 255, 0.2);
   border-color: var(--cyan-neon);
-  box-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
 }
 
 /* --- SecciÃ³n 4: Funko Showcase & Frase Inspiradora --- */
