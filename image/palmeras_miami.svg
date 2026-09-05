@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMax slice" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente de Palmera Izquierda (Silueta Oscura a Magenta Neón) -->
+    <linearGradient id="palmGradLeft" x1="0%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#040612" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#0c102c" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ff2a85" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Gradiente de Palmera Derecha (Silueta Oscura a Cian Neón) -->
+    <linearGradient id="palmGradRight" x1="100%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#040612" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#081432" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#00e5ff" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Brillo Neón Suave de Palmeras -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- ================= PALMERA IZQUIERDA (Agrupación) ================= -->
+  <g class="palm-group-left" opacity="0.65">
+    <!-- Tronco Curvo Izquierdo -->
+    <path d="M 0,1080 Q 80,750 140,480 Q 170,340 230,220 Q 235,210 240,215 Q 180,345 150,490 Q 95,760 30,1080 Z" fill="url(#palmGradLeft)"/>
+    
+    <!-- Hojas / Frondas Palmera Izquierda -->
+    <!-- Fronda 1 (Arriba Derecha) -->
+    <path d="M 235,215 Q 360,160 480,240 C 440,245 360,210 235,215 Z" fill="url(#palmGradLeft)"/>
+    <path d="M 235,215 Q 400,120 540,170 C 490,185 390,170 235,215 Z" fill="url(#palmGradLeft)"/>
+    <path d="M 235,215 Q 350,90 470,100 C 420,120 340,135 235,215 Z" fill="url(#palmGradLeft)"/>
+    <!-- Fronda 2 (Arriba Centro) -->
+    <path d="M 235,215 Q 260,70 330,30 C 300,70 270,120 235,215 Z" fill="url(#palmGradLeft)"/>
+    <path d="M 235,215 Q 190,70 210,10 C 215,70 225,120 235,215 Z" fill="url(#palmGradLeft)"/>
+    <!-- Fronda 3 (Arriba Izquierda) -->
+    <path d="M 235,215 Q 120,90 50,80 C 100,120 170,150 235,215 Z" fill="url(#palmGradLeft)"/>
+    <path d="M 235,215 Q 80,140 0,160 C 60,185 150,195 235,215 Z" fill="url(#palmGradLeft)"/>
+    <!-- Fronda 4 (Colgantes hacia abajo) -->
+    <path d="M 235,215 Q 140,240 60,330 C 120,290 190,260 235,215 Z" fill="url(#palmGradLeft)"/>
+    <path d="M 235,215 Q 290,280 380,380 C 330,310 290,265 235,215 Z" fill="url(#palmGradLeft)"/>
+    <path d="M 235,215 Q 410,230 520,310 C 450,280 360,250 235,215 Z" fill="url(#palmGradLeft)"/>
+
+    <!-- Palmera Secundaria Más Pequeña Izquierda -->
+    <path d="M 0,1080 Q 40,880 70,720 Q 90,620 120,530 Q 123,525 127,528 Q 97,625 78,725 Q 50,885 15,1080 Z" fill="#040612" opacity="0.9"/>
+    <path d="M 124,527 Q 200,470 280,510 C 240,515 190,495 124,527 Z" fill="#0c102c"/>
+    <path d="M 124,527 Q 220,440 310,460 C 260,475 200,470 124,527 Z" fill="#0c102c"/>
+    <path d="M 124,527 Q 150,420 180,390 C 170,430 150,470 124,527 Z" fill="#0c102c"/>
+    <path d="M 124,527 Q 70,450 10,460 C 50,480 90,500 124,527 Z" fill="#0c102c"/>
+    <path d="M 124,527 Q 60,540 0,600 C 40,570 85,550 124,527 Z" fill="#0c102c"/>
+    <path d="M 124,527 Q 170,580 230,640 C 190,590 160,560 124,527 Z" fill="#0c102c"/>
+  </g>
+
+  <!-- ================= PALMERA DERECHA (Agrupación Miami) ================= -->
+  <g class="palm-group-right" opacity="0.65">
+    <!-- Tronco Curvo Derecho -->
+    <path d="M 1920,1080 Q 1830,760 1770,490 Q 1735,340 1675,210 Q 1670,200 1665,205 Q 1725,345 1760,495 Q 1815,770 1890,1080 Z" fill="url(#palmGradRight)"/>
+    
+    <!-- Hojas / Frondas Palmera Derecha -->
+    <!-- Fronda 1 (Arriba Izquierda) -->
+    <path d="M 1670,205 Q 1530,150 1400,230 C 1450,235 1530,200 1670,205 Z" fill="url(#palmGradRight)"/>
+    <path d="M 1670,205 Q 1480,110 1340,160 C 1400,175 1500,160 1670,205 Z" fill="url(#palmGradRight)"/>
+    <path d="M 1670,205 Q 1530,80 1410,90 C 1460,110 1540,125 1670,205 Z" fill="url(#palmGradRight)"/>
+    <!-- Fronda 2 (Arriba Centro) -->
+    <path d="M 1670,205 Q 1640,60 1570,20 C 1600,60 1630,110 1670,205 Z" fill="url(#palmGradRight)"/>
+    <path d="M 1670,205 Q 1710,60 1690,0 C 1685,60 1675,110 1670,205 Z" fill="url(#palmGradRight)"/>
+    <!-- Fronda 3 (Arriba Derecha) -->
+    <path d="M 1670,205 Q 1780,80 1850,70 C 1800,110 1730,140 1670,205 Z" fill="url(#palmGradRight)"/>
+    <path d="M 1670,205 Q 1820,130 1920,150 C 1850,175 1760,185 1670,205 Z" fill="url(#palmGradRight)"/>
+    <!-- Fronda 4 (Colgantes hacia abajo) -->
+    <path d="M 1670,205 Q 1760,230 1840,320 C 1780,280 1710,250 1670,205 Z" fill="url(#palmGradRight)"/>
+    <path d="M 1670,205 Q 1600,270 1510,370 C 1560,300 1610,255 1670,205 Z" fill="url(#palmGradRight)"/>
+    <path d="M 1670,205 Q 1480,220 1370,300 C 1440,270 1540,240 1670,205 Z" fill="url(#palmGradRight)"/>
+
+    <!-- Palmera Secundaria Más Pequeña Derecha -->
+    <path d="M 1920,1080 Q 1875,890 1840,730 Q 1820,630 1785,540 Q 1782,535 1777,538 Q 1812,635 1832,735 Q 1865,895 1905,1080 Z" fill="#040612" opacity="0.9"/>
+    <path d="M 1781,537 Q 1690,480 1600,520 C 1650,525 1700,505 1781,537 Z" fill="#081432"/>
+    <path d="M 1781,537 Q 1670,450 1570,470 C 1630,485 1690,480 1781,537 Z" fill="#081432"/>
+    <path d="M 1781,537 Q 1740,430 1710,400 C 1720,440 1750,480 1781,537 Z" fill="#081432"/>
+    <path d="M 1781,537 Q 1835,460 1900,470 C 1855,490 1815,510 1781,537 Z" fill="#081432"/>
+    <path d="M 1781,537 Q 1845,550 1920,610 C 1870,580 1820,560 1781,537 Z" fill="#081432"/>
+    <path d="M 1781,537 Q 1730,590 1660,650 C 1710,600 1745,570 1781,537 Z" fill="#081432"/>
+  </g>
+</svg>

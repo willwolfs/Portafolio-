@@ -13,6 +13,9 @@
 </head>
 <body>
 
+<!-- Capa de Fondo: Palmeras Estilo Miami (Estático) -->
+<div class="miami-palms-layer" aria-hidden="true"></div>
+
 <!-- Banner del Canal -->
 <header class="channel-banner">
   <!-- Contenido del Banner: Título/Redes a la izquierda y Reproductor a la derecha -->
@@ -108,69 +111,11 @@
       </div>
     </div>
 
-    <!-- Columna Derecha: Tarjeta de Publicación estilo X (Twitter) con Foto -->
-    <div class="hero-tweet-col">
-      <article class="tweet-card">
-        <!-- Cabecera del Tweet (Avatar Funko, Nombre, @User, Insignia, Logo X) -->
-        <div class="tweet-header">
-          <div class="tweet-author-info">
-            <img src="image/funko1.png" alt="Will Salinas" class="tweet-avatar">
-            <div class="tweet-names">
-              <div class="tweet-name-row">
-                <strong class="tweet-author-name">Natflux</strong>
-                <!-- Insignia Verificada -->
-                <svg class="verified-badge" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                  <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.79-4-4-4-.495 0-.965.084-1.4.238C14.55 2.475 13.18 1.6 11.6 1.6c-1.58 0-2.95.875-3.6 2.148-.435-.154-.905-.238-1.4-.238-2.21 0-4 1.79-4 4 0 .495.084.965.238 1.4C1.575 9.55.7 10.92.7 12.5c0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.79 4 4 4 .495 0 .965-.084 1.4-.238 1.05 1.273 2.42 2.148 4 2.148 1.58 0 2.95-.875 3.6-2.148.435.154.905.238 1.4.238 2.21 0 4-1.79 4-4 0-.495-.084-.965-.238-1.4 1.273-1.05 2.148-2.42 2.148-4zm-12.28 4.28l-4.242-4.242 1.414-1.414 2.828 2.828 6.364-6.364 1.414 1.414-7.778 7.778z"/>
-                </svg>
-                <span class="tweet-handle">@Natwolft</span>
-              </div>
-              <span class="tweet-bio-sub">Frontend Engineer &amp; UI Designer</span>
-            </div>
-          </div>
-          
-          <!-- Icono X -->
-          <div class="x-logo-badge" title="Publicación de X">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Texto del Post / Tweet -->
-        <div class="tweet-content">
-          <p class="tweet-text">
-            Explorando nuevos límites en la web: interfaces fluidas, diseño de sistemas en <a href="https://x.com/figma" class="tweet-tag">#Figma</a> y desarrollo interactivo con <a href="https://x.com/JavaScriptDaily" class="tweet-tag">#JavaScript</a> y  ¡Construyamos algo extraordinario juntos! 🚀✨
-          </p>
-        </div>
-
-        <!-- Imagen Rectangular del Post -->
-        <div class="tweet-media-wrapper">
-          <img src="image/Gemini_Generated_Image_t98cxut98cxut98c.jpeg" alt="Will Salinas Post" class="tweet-rectangular-img">
-        </div>
-
-        <!-- Barra de Interacciones (Stats estilo X) -->
-        <div class="tweet-actions">
-          <!-- Reply -->
-          <div class="tweet-action-item">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.245C5.344 18 1.751 14.42 1.751 10z"/></svg>
-            <span>48</span>
-          </div>
-          <!-- Retweet / Repost -->
-          <div class="tweet-action-item retweet">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 20.12l-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2H11V4h2.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14z"/></svg>
-            <span>124</span>
-          </div>
-          <!-- Like -->
-          <div class="tweet-action-item like">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.15 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12z"/></svg>
-            <span>1.8K</span>
-          </div>
-          <!-- Share / Enlace -->
-          <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="tweet-action-item" title="Ver perfil">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41L7.71 9.71 6.3 8.29 12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"/></svg>
-          </a>
-        </div>
-      </article>
+    <!-- Columna Derecha: Foto de Perfil en Círculo Estilo Miami -->
+    <div class="hero-photo-col">
+      <div class="profile-circle-wrapper">
+        <img src="image/Gemini_Generated_Image_t98cxut98cxut98c.jpeg" alt="Will Salinas" class="profile-circle-img">
+      </div>
     </div>
   </section>
 

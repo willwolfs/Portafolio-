@@ -43,6 +43,22 @@ body {
   overflow-x: hidden;
 }
 
+/* --- Capa de Fondo: Palmeras Estilo Miami (Estático) --- */
+.miami-palms-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../image/palmeras_miami.svg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+}
+
 /* --- Banner Superior --- */
 .channel-banner {
   background-image: 
@@ -322,12 +338,12 @@ body {
   text-shadow: 0 0 8px rgba(225, 6, 0, 0.6);
 }
 
-/* --- SecciÃ³n de PresentaciÃ³n Principal (2 Columnas: DescripciÃ³n Izquierda, Tarjeta X Derecha) --- */
+/* --- Sección de Presentación Principal (2 Columnas: Descripción Izquierda, Círculo Foto Derecha) --- */
 .hero-split-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 48px;
-  align-items: start;
+  align-items: center;
   width: 100%;
   margin: 10px 0 50px;
 }
@@ -435,191 +451,73 @@ body {
   text-decoration: underline;
 }
 
-/* Columna Derecha: Tarjeta Estilo PublicaciÃ³n de X (Twitter) */
-.hero-tweet-col {
+/* Columna Derecha: Foto de Perfil en Círculo Estilo Miami */
+.hero-photo-col {
   display: flex;
   justify-content: center;
-  position: relative; /* EstÃ¡tico en su posiciÃ³n */
-}
-
-.tweet-card {
-  width: 100%;
-  max-width: 520px;
-  background: rgba(13, 16, 28, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
-  padding: 20px 22px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(225, 6, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  transition: all 0.3s ease;
-}
-
-.tweet-card:hover {
-  border-color: rgba(225, 6, 0, 0.35);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(225, 6, 0, 0.18);
-  transform: translateY(-3px);
-}
-
-/* Cabecera del Tweet */
-.tweet-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.tweet-author-info {
-  display: flex;
   align-items: center;
-  gap: 12px;
+  position: relative;
+  padding: 10px;
 }
 
-.tweet-avatar {
-  width: 44px;
-  height: 44px;
+.profile-circle-wrapper {
+  position: relative;
+  width: clamp(260px, 28vw, 340px);
+  height: clamp(260px, 28vw, 340px);
   border-radius: 50%;
-  object-fit: cover;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid rgba(225, 6, 0, 0.4);
-  box-shadow: 0 0 10px rgba(225, 6, 0, 0.2);
-}
-
-.tweet-names {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.tweet-name-row {
+  padding: 4px;
+  background: linear-gradient(135deg, var(--miami-cyan) 0%, var(--miami-pink) 100%);
+  box-shadow: 
+    0 0 35px rgba(0, 229, 255, 0.45),
+    0 0 70px rgba(255, 42, 133, 0.25),
+    0 20px 45px rgba(0, 0, 0, 0.85);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
 }
 
-.tweet-author-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #ffffff;
+.profile-circle-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--miami-cyan), var(--miami-pink));
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(14px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.verified-badge {
-  color: #1d9bf0;
-  flex-shrink: 0;
+.profile-circle-wrapper:hover {
+  transform: scale(1.04);
+  box-shadow: 
+    0 0 50px rgba(255, 42, 133, 0.65),
+    0 0 90px rgba(0, 229, 255, 0.4),
+    0 25px 50px rgba(0, 0, 0, 0.9);
 }
 
-.tweet-handle {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.78rem;
-  color: #64748b;
-}
-
-.tweet-bio-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  color: #94a3b8;
-}
-
-.x-logo-badge {
-  color: #ffffff;
-  opacity: 0.7;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.tweet-card:hover .x-logo-badge {
+.profile-circle-wrapper:hover::before {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* Texto del Post */
-.tweet-content {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: #f1f5f9;
-}
-
-.tweet-tag {
-  color: #1d9bf0;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.tweet-tag:hover {
-  text-decoration: underline;
-  color: #00ba7c;
-}
-
-/* Imagen Circular (Estilo Retrato Miami) */
-.tweet-media-wrapper {
-  width: 250px;
-  height: 250px;
-  margin: 14px auto;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid rgba(0, 229, 255, 0.45);
-  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25), 0 12px 30px rgba(0, 0, 0, 0.7);
-  background: #060919;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.35s ease;
-}
-
-.tweet-card:hover .tweet-media-wrapper {
-  border-color: #ff2a85;
-  box-shadow: 0 0 30px rgba(255, 42, 133, 0.4), 0 14px 35px rgba(0, 0, 0, 0.8);
-  transform: scale(1.02);
-}
-
-.tweet-rectangular-img {
+.profile-circle-img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
-  transition: transform 0.35s ease;
+  background: #060919;
+  border: 3px solid #060919;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tweet-card:hover .tweet-rectangular-img {
-  transform: scale(1.06);
+.profile-circle-wrapper:hover .profile-circle-img {
+  transform: scale(1.03);
 }
 
-/* Botones de Interacciones / Acciones */
-.tweet-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 4px;
-  color: #94a3b8;
-}
-
-.tweet-action-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.tweet-action-item:hover {
-  color: #1d9bf0;
-}
-
-.tweet-action-item.retweet:hover {
-  color: #00ba7c;
-}
-
-.tweet-action-item.like:hover {
-  color: #f91880;
-}
 
 /* Contenedor Inferior */
 .about-container {
@@ -1062,8 +960,8 @@ body {
     gap: 36px;
   }
 
-  .hero-tweet-col {
-    position: static;
+  .hero-photo-col {
+    margin: 10px auto;
   }
 }
 
