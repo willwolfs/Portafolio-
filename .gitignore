@@ -1,0 +1,9 @@
+# Archivos multimedia pesados
+video/
+*.mp4
+*.mov
+*.avi
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store

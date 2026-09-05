@@ -1,0 +1,1078 @@
+:root {
+  --bg-color: #08090f;
+  --panel-bg: rgba(13, 16, 28, 0.7);
+  --cyan-neon: #00f0ff;
+  --accent-red: #ff3355;
+  --text-main: #e0e6ed;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Fira Code', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Lienzo de fondo de estrellas */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- Banner Superior --- */
+.channel-banner {
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(8, 9, 15, 0.95) 100%),
+    url('css/image/pika2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 24px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.banner-top-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.brand-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+/* Modificadores de Banner Centrado para páginas secundarias */
+.banner-centered-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding: 30px 0 10px;
+}
+
+.banner-center-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-title-center {
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  letter-spacing: 4px;
+}
+
+.banner-bottom-row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Redes Sociales */
+.banner-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.social-img-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+.social-icon-btn:hover {
+  background: #ffffff;
+  border-color: var(--cyan-neon);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+}
+
+/* --- Reproductor Lo-Fi Minimalista (Esquina Derecha del Banner) --- */
+.banner-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.lofi-player-widget {
+  background: rgba(13, 16, 28, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 8px 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.lofi-player-widget:hover {
+  background: rgba(13, 16, 28, 0.9);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.player-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-play-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  color: #08090f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.player-play-btn:hover {
+  background: var(--cyan-neon);
+  box-shadow: 0 0 10px var(--cyan-neon);
+  transform: scale(1.05);
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.track-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-red);
+}
+
+.track-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  white-space: nowrap;
+}
+
+/* Ecualizador Animado */
+.sound-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+  margin-left: 4px;
+}
+
+.sound-equalizer .bar {
+  width: 2.5px;
+  background: var(--cyan-neon);
+  border-radius: 2px;
+  height: 3px;
+  transition: height 0.2s ease;
+}
+
+.lofi-player-widget.playing .sound-equalizer .bar {
+  animation: equalizerBounce 1s ease-in-out infinite alternate;
+}
+
+.lofi-player-widget.playing .sound-equalizer .bar:nth-child(1) { animation-delay: 0.1s; }
+.lofi-player-widget.playing .sound-equalizer .bar:nth-child(2) { animation-delay: 0.35s; }
+.lofi-player-widget.playing .sound-equalizer .bar:nth-child(3) { animation-delay: 0.2s; }
+.lofi-player-widget.playing .sound-equalizer .bar:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes equalizerBounce {
+  0% { height: 3px; }
+  50% { height: 14px; }
+  100% { height: 6px; }
+}
+
+/* --- Navegación de 4 Burbujas dentro del Banner --- */
+.banner-center-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.bubble-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding: 0;
+}
+
+.bubble-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 16, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #d1d5db;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.bubble-btn:hover {
+  color: #ffffff;
+  background: rgba(13, 16, 28, 0.95);
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 14px rgba(0, 240, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.bubble-btn.active {
+  background: rgba(0, 240, 255, 0.15);
+  color: #ffffff;
+  border-color: var(--cyan-neon);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.15);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+/* --- Sección de Presentación Principal (2 Columnas: Descripción Izquierda, Tarjeta X Derecha) --- */
+.hero-split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  width: 100%;
+  margin: 10px 0 50px;
+}
+
+/* Columna Izquierda: Descripción & Editorial */
+.hero-desc-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hello-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(13, 16, 28, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cyan-neon);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
+  backdrop-filter: blur(10px);
+  align-self: flex-start;
+}
+
+.hello-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan-neon);
+  box-shadow: 0 0 8px var(--cyan-neon);
+}
+
+.typing-cursor {
+  color: var(--cyan-neon);
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-heading {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.about-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.highlight-link {
+  color: var(--accent-red);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.highlight-link:hover {
+  color: #ff6b8b;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.quote-highlight {
+  color: var(--accent-red);
+}
+
+.social-prompt {
+  font-style: italic;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.italic-link {
+  color: var(--accent-red);
+  font-style: italic;
+  text-decoration: none;
+}
+
+.italic-link:hover {
+  text-decoration: underline;
+}
+
+/* Columna Derecha: Tarjeta Estilo Publicación de X (Twitter) */
+.hero-tweet-col {
+  display: flex;
+  justify-content: center;
+  position: relative; /* Estático en su posición */
+}
+
+.tweet-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(13, 16, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 20px 22px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+
+.tweet-card:hover {
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(0, 240, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+/* Cabecera del Tweet */
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tweet-author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tweet-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.tweet-names {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tweet-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tweet-author-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.verified-badge {
+  color: #1d9bf0;
+  flex-shrink: 0;
+}
+
+.tweet-handle {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.tweet-bio-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.x-logo-badge {
+  color: #ffffff;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tweet-card:hover .x-logo-badge {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Texto del Post */
+.tweet-content {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #f1f5f9;
+}
+
+.tweet-tag {
+  color: #1d9bf0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tweet-tag:hover {
+  text-decoration: underline;
+  color: #00ba7c;
+}
+
+/* Imagen Rectangular (Estilo X Tweet Image) */
+.tweet-media-wrapper {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #000000;
+}
+
+.tweet-rectangular-img {
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.tweet-card:hover .tweet-rectangular-img {
+  transform: scale(1.015);
+}
+
+/* Botones de Interacciones / Acciones */
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
+  color: #94a3b8;
+}
+
+.tweet-action-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.tweet-action-item:hover {
+  color: #1d9bf0;
+}
+
+.tweet-action-item.retweet:hover {
+  color: #00ba7c;
+}
+
+.tweet-action-item.like:hover {
+  color: #f91880;
+}
+
+/* Contenedor Inferior */
+.about-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+}
+
+/* --- Sección de Herramientas / Carrusel Infinito (Marquee) --- */
+.tools-section {
+  margin-top: 60px;
+  padding-top: 45px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.tools-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  align-items: center;
+}
+
+.tools-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.tools-subtag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Envoltorio del Marquee con Máscara de Desvanecimiento en los Bordes */
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  animation: marqueeScroll 22s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused; /* Pausar al pasar el mouse */
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* Cada Item de Herramienta en la Tira */
+.marquee-item {
+  background: rgba(13, 16, 28, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 30px;
+  padding: 8px 20px 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.marquee-item:hover {
+  background: rgba(13, 16, 28, 0.95);
+  border-color: var(--glow-color, var(--cyan-neon));
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 16px var(--glow-color, rgba(0, 240, 255, 0.3));
+}
+
+.tool-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 7px;
+}
+
+.tool-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.tool-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Animación de Desplazamiento Infinito Continuo */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+/* --- Sección 3: Línea de Tiempo de Experiencias & Habilidades --- */
+.timeline-section {
+  margin-top: 70px;
+  padding-top: 50px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.timeline-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  align-items: center;
+}
+
+.section-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.section-subtag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-left: 2px solid rgba(0, 240, 255, 0.25);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 12px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 3px solid var(--cyan-neon);
+  box-shadow: 0 0 10px var(--cyan-neon);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--cyan-neon);
+  transform: scale(1.3);
+  box-shadow: 0 0 16px var(--cyan-neon);
+}
+
+.timeline-content {
+  background: rgba(13, 16, 28, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 24px 28px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  background: rgba(13, 16, 28, 0.9);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 240, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.timeline-date {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  letter-spacing: 1px;
+}
+
+.timeline-role {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.timeline-company {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.timeline-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.skill-pill {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cyan-neon);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: var(--cyan-neon);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+/* --- Sección 4: Funko Showcase & Frase Inspiradora --- */
+.funko-quote-section {
+  margin-top: 80px;
+  padding: 50px 0 20px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.funko-quote-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 950px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Funko Wrapper */
+.raw-image-showcase.funko-container {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.funko-img {
+  display: block;
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(0, 240, 255, 0.15));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.funko-container:hover .funko-img {
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 35px rgba(0, 240, 255, 0.35));
+  transform: translateY(-4px);
+}
+
+.funko-container:active .funko-img {
+  transform: scale(0.94);
+}
+
+.funko-pop {
+  animation: funkoPopAnim 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes funkoPopAnim {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  50% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.funko-dynamic-msg {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(13, 16, 28, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-top: 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.funko-container:hover .funko-dynamic-msg {
+  border-color: var(--cyan-neon);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.35);
+  transform: scale(1.04);
+}
+
+.typing-prefix {
+  color: var(--accent-red);
+}
+
+.typing-text {
+  color: var(--cyan-neon);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+.typing-cursor {
+  color: var(--cyan-neon);
+  animation: blinkCursor 0.8s infinite;
+}
+
+/* Frase Inspiradora */
+.quote-content {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  padding: 30px;
+  background: rgba(13, 16, 28, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.quote-content:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 240, 255, 0.12);
+}
+
+.quote-icon {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 4.5rem;
+  line-height: 0.5;
+  color: var(--cyan-neon);
+  opacity: 0.6;
+}
+
+.quote-phrase {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.quote-author {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-red);
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-split-section {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-tweet-col {
+    position: static;
+  }
+}
+
+@media (max-width: 900px) {
+  .banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .channel-banner {
+    min-height: 240px;
+    padding: 24px 16px;
+  }
+
+  .brand-title {
+    font-size: 2rem;
+  }
+
+  .about-container {
+    margin: 36px auto 50px;
+    padding: 0 16px;
+  }
+
+  .hero-heading {
+    font-size: 2.4rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}

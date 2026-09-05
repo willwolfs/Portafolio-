@@ -1,0 +1,433 @@
+/* ===================================================
+   ESTILOS ESPECÍFICOS PARA LA PÁGINA DE PROYECTOS
+   (Minimalista, Glassmorphism & Cyberpunk Elegante)
+   =================================================== */
+
+/* Imagen de fondo personalizada para el Banner de Proyectos */
+.channel-banner.banner-proyectos {
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(8, 9, 15, 0.95) 100%),
+    url('css/image/snorlax.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Contenedor Principal de Proyectos */
+.projects-section {
+  max-width: 1200px;
+  margin: 50px auto 100px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Filtros de Categorías Minimalistas */
+.projects-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.filter-btn:hover {
+  color: #ffffff;
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--cyan-neon);
+  border-color: var(--cyan-neon);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+}
+
+/* Grid de Tarjetas de Proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+/* Tarjeta de Proyecto Minimalista */
+.project-card {
+  background: rgba(13, 16, 28, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.15);
+}
+
+/* Contenedor de Imagen de Portada */
+.project-thumb-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Ratio 16:9 */
+  overflow: hidden;
+  background: #111420;
+}
+
+.project-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-thumb {
+  transform: scale(1.04);
+}
+
+/* Detalles del Proyecto */
+.project-details {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 12px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--cyan-neon);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.project-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+
+.project-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  flex-grow: 1;
+}
+
+/* Enlaces y Botones de la Tarjeta */
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-btn-primary {
+  background: #ffffff;
+  color: #08090f;
+}
+
+.project-btn-primary:hover {
+  background: var(--cyan-neon);
+  box-shadow: 0 0 12px var(--cyan-neon);
+}
+
+.project-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .projects-section {
+    margin: 36px auto 60px;
+    padding: 0 16px;
+  }
+}
+
+/* ===================================================
+   MODAL DE VIDEO DEMOSTRACIÓN (2 COLUMNAS)
+   =================================================== */
+.demo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 6, 12, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.demo-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.demo-modal-window {
+  background: rgba(13, 16, 28, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 20px;
+  max-width: 1050px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.15);
+  transform: scale(0.92) translateY(20px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 36px 32px;
+}
+
+.demo-modal-overlay.active .demo-modal-window {
+  transform: scale(1) translateY(0);
+}
+
+/* Botón de Cerrar Modal */
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 1.6rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  box-shadow: 0 0 14px var(--accent-red);
+  transform: rotate(90deg);
+}
+
+/* Grid de 2 Columnas del Modal */
+.demo-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Columna Izquierda: Información */
+.demo-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.demo-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--cyan-neon);
+  letter-spacing: 1px;
+  align-self: flex-start;
+}
+
+.demo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan-neon);
+  box-shadow: 0 0 8px var(--cyan-neon);
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.demo-modal-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.demo-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.demo-desc-block,
+.demo-features-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-block-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.demo-modal-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+.demo-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demo-features-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo-features-list li::before {
+  content: "▹";
+  color: var(--cyan-neon);
+  font-size: 1rem;
+}
+
+.demo-modal-actions {
+  margin-top: 8px;
+}
+
+/* Columna Derecha: Reproductor de Video */
+.demo-video-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.video-container-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.demo-video-player {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 440px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Responsive para el Modal */
+@media (max-width: 860px) {
+  .demo-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .demo-modal-window {
+    padding: 28px 20px;
+    max-height: 85vh;
+  }
+}

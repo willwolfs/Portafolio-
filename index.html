@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio</title>
+  <link rel="icon" href="image/icono.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- Lienzo interactivo de fondo (Estrellas / Constelaciones) -->
+  <canvas id="starfield"></canvas>
+
+<!-- Banner del Canal -->
+<header class="channel-banner">
+  <!-- Fila Superior: 4 Botones en forma de Burbuja dentro del Banner -->
+  <div class="banner-top-row">
+    <nav class="banner-center-nav">
+      <div class="bubble-nav">
+        <a href="index.html" class="bubble-btn active">Inicio</a>
+        <a href="proyectos.html" class="bubble-btn">Proyectos</a>
+        <a href="publicaciones.html" class="bubble-btn">Servicios</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Fila Inferior: Título/Redes a la izquierda y Reproductor a la derecha -->
+  <div class="banner-content">
+    
+    <!-- Lado Izquierdo: Título y Botones de Redes -->
+    <div class="banner-left">
+      <h1 class="brand-title">Will salinas</h1>
+      
+      <div class="banner-socials">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/will-salinas-sanch%C3%A9z-1b3892430/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+          <img src="image/in.png" alt="LinkedIn" class="social-img-icon">
+        </a>
+
+        <!-- Gmail -->
+        <a href="mailto:salinassanchezwill@gmail.com" class="social-icon-btn" title="Enviar Correo">
+          <img src="image/gmail.png" alt="Gmail" class="social-img-icon">
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+          <img src="image/github.png" alt="GitHub" class="social-img-icon">
+        </a>
+      </div>
+    </div>
+
+    <!-- Lado Derecho: Reproductor Lo-Fi Minimalista en la esquina -->
+    <div class="banner-right">
+      <div class="lofi-player-widget" id="lofiWidget">
+        <div class="player-main">
+          <button class="player-play-btn" id="lofiPlayBtn" title="Reproducir / Pausar">
+            <svg id="playIcon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+              <polygon points="6,4 20,12 6,20"></polygon>
+            </svg>
+            <svg id="pauseIcon" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" style="display:none;">
+              <rect x="5" y="4" width="4" height="16"></rect>
+              <rect x="15" y="4" width="4" height="16"></rect>
+            </svg>
+          </button>
+          <div class="player-info">
+            <span class="track-tag">LO-FI / SYNTH</span>
+            <span class="track-title" id="trackTitle">Midnight Chill</span>
+          </div>
+          <div class="sound-equalizer" id="equalizer">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+        <audio id="lofiAudio" preload="none" src="https://stream.zeno.fm/f3wvbbqmdg8uv"></audio>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- Contenedor Principal -->
+<main class="about-container">
+
+  <!-- Sección de Presentación Principal (2 Columnas: Descripción a la Izquierda, Tarjeta X a la Derecha) -->
+  <section class="hero-split-section">
+    
+    <!-- Columna Izquierda: Hello World, Título Editorial & Descripción -->
+    <div class="hero-desc-col">
+      <!-- Badge Hello World Dinámico -->
+      <div class="hello-badge">
+        <span class="hello-dot"></span>
+        <span class="hello-tag" id="typewriterText">HELLO WORLD!</span>
+        <span class="typing-cursor">_</span>
+      </div>
+
+      <!-- Título Principal & Subtítulo -->
+      <h2 class="hero-heading">Donde el diseño,<br>se une a la funcionalidad.</h2>
+      <p class="hero-subtag">WILL SALINAS — DESARROLLADOR DE SOFTWARE & UI DESIGNER</p>
+
+      <!-- Párrafos descriptivos -->
+      <div class="about-text">
+        <p>
+          Diseño y desarrollo experiencias digitales que combinan tecnología, diseño y funcionalidad. Creo interfaces modernas, aplicaciones web y experimentos interactivos pensados para resolver problemas reales de una forma simple y atractiva.
+        </p>
+
+        <p>
+          Me interesa convertir ideas complejas en productos digitales claros, intuitivos y agradables de usar. Desde la arquitectura de una aplicación hasta el último detalle de su interfaz, disfruto construir cada parte del proceso.
+        </p>
+
+        <p>
+          He trabajado en proyectos de desarrollo de software, frontend y diseño de interfaces, explorando nuevas formas de crear experiencias web modernas y eficientes de forma independiente.
+        </p>
+
+        <p>
+          Explora mis <a href="proyectos.html" class="highlight-link">proyectos</a>, conoce un poco más sobre mí o simplemente <a href="mailto:salinassanchezwill@gmail.com" class="highlight-link">hablemos de una idea</a>.
+        </p>
+
+        <p class="social-prompt">
+          — También puedes encontrarme en <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="italic-link">GitHub</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Tarjeta de Publicación estilo X (Twitter) con Foto -->
+    <div class="hero-tweet-col">
+      <article class="tweet-card">
+        <!-- Cabecera del Tweet (Avatar Funko, Nombre, @User, Insignia, Logo X) -->
+        <div class="tweet-header">
+          <div class="tweet-author-info">
+            <img src="image/funko1.png" alt="Will Salinas" class="tweet-avatar">
+            <div class="tweet-names">
+              <div class="tweet-name-row">
+                <strong class="tweet-author-name">Natflux</strong>
+                <!-- Insignia Verificada -->
+                <svg class="verified-badge" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.79-4-4-4-.495 0-.965.084-1.4.238C14.55 2.475 13.18 1.6 11.6 1.6c-1.58 0-2.95.875-3.6 2.148-.435-.154-.905-.238-1.4-.238-2.21 0-4 1.79-4 4 0 .495.084.965.238 1.4C1.575 9.55.7 10.92.7 12.5c0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.79 4 4 4 .495 0 .965-.084 1.4-.238 1.05 1.273 2.42 2.148 4 2.148 1.58 0 2.95-.875 3.6-2.148.435.154.905.238 1.4.238 2.21 0 4-1.79 4-4 0-.495-.084-.965-.238-1.4 1.273-1.05 2.148-2.42 2.148-4zm-12.28 4.28l-4.242-4.242 1.414-1.414 2.828 2.828 6.364-6.364 1.414 1.414-7.778 7.778z"/>
+                </svg>
+                <span class="tweet-handle">@Natwolft</span>
+              </div>
+              <span class="tweet-bio-sub">Frontend Engineer &amp; UI Designer</span>
+            </div>
+          </div>
+          
+          <!-- Icono X -->
+          <div class="x-logo-badge" title="Publicación de X">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Texto del Post / Tweet -->
+        <div class="tweet-content">
+          <p class="tweet-text">
+            Explorando nuevos límites en la web: interfaces fluidas, diseño de sistemas en <a href="https://x.com/figma" class="tweet-tag">#Figma</a> y desarrollo interactivo con <a href="https://x.com/JavaScriptDaily" class="tweet-tag">#JavaScript</a> y  ¡Construyamos algo extraordinario juntos! 🚀✨
+          </p>
+        </div>
+
+        <!-- Imagen Rectangular del Post -->
+        <div class="tweet-media-wrapper">
+          <img src="image/Gemini_Generated_Image_t98cxut98cxut98c.jpeg" alt="Will Salinas Post" class="tweet-rectangular-img">
+        </div>
+
+        <!-- Barra de Interacciones (Stats estilo X) -->
+        <div class="tweet-actions">
+          <!-- Reply -->
+          <div class="tweet-action-item">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.245C5.344 18 1.751 14.42 1.751 10z"/></svg>
+            <span>48</span>
+          </div>
+          <!-- Retweet / Repost -->
+          <div class="tweet-action-item retweet">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 20.12l-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2H11V4h2.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14z"/></svg>
+            <span>124</span>
+          </div>
+          <!-- Like -->
+          <div class="tweet-action-item like">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.15 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12z"/></svg>
+            <span>1.8K</span>
+          </div>
+          <!-- Share / Enlace -->
+          <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="tweet-action-item" title="Ver perfil">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41L7.71 9.71 6.3 8.29 12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sección de Herramientas / Carrusel Tira Continua (Infinite Marquee) -->
+  <section class="tools-section">
+    <div class="tools-header">
+      <h3 class="tools-title">Herramientas & Tecnologías</h3>
+      <p class="tools-subtag">ARSENAL TÉCNICO Y STACK PRINCIPAL</p>
+    </div>
+
+    <!-- Contenedor Marquee Infinito -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- Grupo 1 -->
+        <div class="marquee-group">
+          <!-- Figma -->
+          <div class="marquee-item" style="--glow-color: #f24e1e;">
+            <div class="tool-icon">
+              <img src="image/figma-logo-0.webp" alt="Figma" class="tool-img">
+            </div>
+            <span class="tool-name">Figma</span>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="marquee-item" style="--glow-color: #f7df1e;">
+            <div class="tool-icon">
+              <img src="image/img_javascript_480.webp" alt="JavaScript" class="tool-img">
+            </div>
+            <span class="tool-name">JavaScript</span>
+          </div>
+
+          <!-- HTML5 -->
+          <div class="marquee-item" style="--glow-color: #e34f26;">
+            <div class="tool-icon">
+              <img src="image/html-5.webp" alt="HTML5" class="tool-img">
+            </div>
+            <span class="tool-name">HTML5</span>
+          </div>
+
+          <!-- Node.js -->
+          <div class="marquee-item" style="--glow-color: #68a063;">
+            <div class="tool-icon">
+              <img src="image/node-js-736399_640.webp" alt="Node.js" class="tool-img">
+            </div>
+            <span class="tool-name">Node.js</span>
+          </div>
+
+          <!-- Docker -->
+          <div class="marquee-item" style="--glow-color: #2496ed;">
+            <div class="tool-icon">
+              <img src="image/docker-6.webp" alt="Docker" class="tool-img">
+            </div>
+            <span class="tool-name">Docker</span>
+          </div>
+
+          <!-- Git / GitHub -->
+          <div class="marquee-item" style="--glow-color: #f05032;">
+            <div class="tool-icon">
+              <img src="image/git.webp" alt="Git" class="tool-img">
+            </div>
+            <span class="tool-name">Git</span>
+          </div>
+        </div>
+
+        <!-- Grupo 2 (Duplicado para efecto de ciclo infinito sin cortes) -->
+        <div class="marquee-group" aria-hidden="true">
+          <!-- Figma -->
+          <div class="marquee-item" style="--glow-color: #f24e1e;">
+            <div class="tool-icon">
+              <img src="image/figma-logo-0.webp" alt="Figma" class="tool-img">
+            </div>
+            <span class="tool-name">Figma</span>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="marquee-item" style="--glow-color: #f7df1e;">
+            <div class="tool-icon">
+              <img src="image/img_javascript_480.webp" alt="JavaScript" class="tool-img">
+            </div>
+            <span class="tool-name">JavaScript</span>
+          </div>
+
+          <!-- HTML5 -->
+          <div class="marquee-item" style="--glow-color: #e34f26;">
+            <div class="tool-icon">
+              <img src="image/html-5.webp" alt="HTML5" class="tool-img">
+            </div>
+            <span class="tool-name">HTML5</span>
+          </div>
+
+          <!-- Node.js -->
+          <div class="marquee-item" style="--glow-color: #68a063;">
+            <div class="tool-icon">
+              <img src="image/node-js-736399_640.webp" alt="Node.js" class="tool-img">
+            </div>
+            <span class="tool-name">Node.js</span>
+          </div>
+
+          <!-- Docker -->
+          <div class="marquee-item" style="--glow-color: #2496ed;">
+            <div class="tool-icon">
+              <img src="image/docker-6.webp" alt="Docker" class="tool-img">
+            </div>
+            <span class="tool-name">Docker</span>
+          </div>
+
+          <!-- Git / GitHub -->
+          <div class="marquee-item" style="--glow-color: #f05032;">
+            <div class="tool-icon">
+              <img src="image/git.webp" alt="Git" class="tool-img">
+            </div>
+            <span class="tool-name">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Línea de Tiempo de Experiencias & Habilidades -->
+  <section class="timeline-section">
+    <div class="timeline-header">
+      <h3 class="section-title">Experiencia & Habilidades</h3>
+      <p class="section-subtag">TRAYECTORIA PROFESIONAL & HITOS DE APRENDIZAJE</p>
+    </div>
+
+    <div class="timeline-container">
+      <!-- Hito 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2024 — PRESENTE</div>
+          <h4 class="timeline-role">Desarrollador Frontend &amp; UI Designer</h4>
+          <span class="timeline-company">Proyectos Independientes &amp; Freelance</span>
+          <p class="timeline-desc">
+            Diseño e implementación de sistemas de diseño escalables en Figma, maquetación de interfaces web interactivas de alto rendimiento con JavaScript moderno, CSS3 avanzado y animaciones micro-interactivas.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">JavaScript ES6+</span>
+            <span class="skill-pill">UI / UX</span>
+            <span class="skill-pill">HTML5 & CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hito 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2023 — 2024</div>
+          <h4 class="timeline-role">Desarrollo Web &amp; APIs Backend</h4>
+          <span class="timeline-company">Formación &amp; Aplicaciones Prácticas</span>
+          <p class="timeline-desc">
+            Construcción de servicios backend y APIs RESTful con Node.js y Express, manejo de base de datos relacionales y no relacionales, e integración de contenedores Docker para entornos de desarrollo.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hito 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">2022 — 2023</div>
+          <h4 class="timeline-role">Fundamentos de Programación &amp; Creatividad Digital</h4>
+          <span class="timeline-company">Inicios en Desarrollo de Software</span>
+          <p class="timeline-desc">
+            Algoritmos, estructuras de datos, lógica de programación y primeros pasos en diseño visual de interfaces web adaptables para diferentes dispositivos.
+          </p>
+          <div class="timeline-skills">
+            <span class="skill-pill">Lógica de Programación</span>
+            <span class="skill-pill">Diseño Web Responsivo</span>
+            <span class="skill-pill">Clean Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: Funko Showcase & Frase Inspiradora -->
+  <section class="funko-quote-section">
+    <div class="funko-quote-container">
+      
+      <!-- Funko Interactivo con cambio automático de pose -->
+      <div class="raw-image-showcase funko-container" id="funkoWrapper">
+        <img src="image/funko2.png" alt="Funko Will" class="raw-image funko-img" id="funkoImg" data-pose="2">
+        <div class="funko-dynamic-msg">
+          <span class="typing-prefix">&gt; </span>
+          <span class="typing-text">CREATIVE MODE</span>
+          <span class="typing-cursor">_</span>
+        </div>
+      </div>
+
+      <!-- Frase Destacada -->
+      <div class="quote-content">
+        <span class="quote-icon">“</span>
+        <blockquote class="quote-phrase">
+          ¡Si puedes imaginarlo, puedes crearlo!
+        </blockquote>
+        <p class="quote-author">— Will Salinas</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+  <script src="script.js"></script>
+</body>
+</html>
