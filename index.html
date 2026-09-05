@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/proyectos.css">
 </head>
 <body>
 
@@ -17,18 +18,7 @@
 
 <!-- Banner del Canal -->
 <header class="channel-banner">
-  <!-- Fila Superior: 4 Botones en forma de Burbuja dentro del Banner -->
-  <div class="banner-top-row">
-    <nav class="banner-center-nav">
-      <div class="bubble-nav">
-        <a href="index.html" class="bubble-btn active">Inicio</a>
-        <a href="proyectos.html" class="bubble-btn">Proyectos</a>
-        <a href="publicaciones.html" class="bubble-btn">Servicios</a>
-      </div>
-    </nav>
-  </div>
-
-  <!-- Fila Inferior: Título/Redes a la izquierda y Reproductor a la derecha -->
+  <!-- Contenido del Banner: Título/Redes a la izquierda y Reproductor a la derecha -->
   <div class="banner-content">
     
     <!-- Lado Izquierdo: Título y Botones de Redes -->
@@ -119,7 +109,7 @@
         </p>
 
         <p>
-          Explora mis <a href="proyectos.html" class="highlight-link">proyectos</a>, conoce un poco más sobre mí o simplemente <a href="mailto:salinassanchezwill@gmail.com" class="highlight-link">hablemos de una idea</a>.
+          Explora mis <a href="#proyectos" class="highlight-link">proyectos</a>, conoce un poco más sobre mí o simplemente <a href="mailto:salinassanchezwill@gmail.com" class="highlight-link">hablemos de una idea</a>.
         </p>
 
         <p class="social-prompt">
@@ -309,6 +299,209 @@
     </div>
   </section>
 
+  <!-- Sección de Proyectos Destacados -->
+  <section class="projects-section" id="proyectos">
+    <div class="projects-header-block">
+      <h3 class="section-title">Proyectos Destacados</h3>
+      <p class="section-subtag">SELECCIÓN DE TRABAJOS Y EXPERIMENTOS INTERACTIVOS</p>
+    </div>
+    
+    <!-- Filtros de Proyectos -->
+    <div class="projects-filter">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="frontend">Frontend / UI</button>
+      <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+      <button class="filter-btn" data-filter="experimentos">Experimentos</button>
+    </div>
+
+    <!-- Grid de Proyectos -->
+    <div class="projects-grid">
+      
+      <!-- Tarjeta Proyecto 1 -->
+      <article class="project-card" data-category="frontend">
+        <div class="project-thumb-wrap">
+          <img src="image/Pagina.png" alt="Ai-Ta Pizza Web" class="project-thumb">
+        </div>
+        <div class="project-details">
+          <div class="project-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+          </div>
+          <h3 class="project-title">Pagina web Ai-Ta Pizza</h3>
+          <p class="project-description">
+            Sitio web para una pizzería, realizado con HTML5, CSS3 y JavaScript, con un diseño único y moderno.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn project-btn-primary open-demo-btn" 
+              data-title="Pagina web Ai-Ta Pizza"
+              data-tags="JavaScript, HTML5, CSS3"
+              data-desc="Sitio web para una pizzería, realizado con HTML5, CSS3 y JavaScript, con un diseño único y moderno."
+              data-features="Diseño único y moderno.|Video de la temática.|Acceso a delivery y menú interactivo."
+              data-video=""
+              data-github="https://github.com/willwolfs/AitaPizza-Web">
+              Ver Demo &rarr;
+            </button>
+            <a href="https://github.com/willwolfs/AitaPizza-Web" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tarjeta Proyecto 2 -->
+      <article class="project-card" data-category="frontend">
+        <div class="project-thumb-wrap">
+          <img src="image/flor.png" alt="Flor de loto 3D" class="project-thumb">
+        </div>
+        <div class="project-details">
+          <div class="project-tags">
+            <span class="tech-tag">HTML &amp; CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">MediaPipe</span>
+            <span class="tech-tag">Camera Utils</span>
+          </div>
+          <h3 class="project-title">Flor de loto 3D</h3>
+          <p class="project-description">
+            Este proyecto es una experiencia visual interactiva en la que controlas una flor de loto en 3D usando gestos de manos.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn project-btn-primary open-demo-btn"
+              data-title="Flor de loto 3D"
+              data-tags="HTML, CSS, JavaScript, MediaPipe, Camera Utils"
+              data-desc="Este proyecto es una experiencia visual interactiva en la que controlas una flor de loto en 3D usando gestos de manos."
+              data-features="Experimenta la interacción con el entorno de forma natural.|Observa cómo la tecnología se fusiona con la naturaleza.|Descubre una experiencia relajante y meditativa."
+              data-video=""
+              data-github="https://github.com/willwolfs/flor.loto">
+              Ver Demo &rarr;
+            </button>
+            <a href="https://github.com/willwolfs/flor.loto" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tarjeta Proyecto 3 -->
+      <article class="project-card" data-category="fullstack">
+        <div class="project-thumb-wrap">
+          <img src="image/app.jpeg" alt="POS Dolce" class="project-thumb">
+        </div>
+        <div class="project-details">
+          <div class="project-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">PL/pgSQL</span>
+          </div>
+          <h3 class="project-title">POS Dolce</h3>
+          <p class="project-description">
+            Este proyecto es un sistema de punto de venta (POS) diseñado para gestionar transacciones comerciales de manera eficiente.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn project-btn-primary open-demo-btn"
+              data-title="POS Dolce"
+              data-tags="JavaScript, HTML5, CSS3, PL/pgSQL"
+              data-desc="Este proyecto es un sistema de punto de venta (POS) diseñado para gestionar transacciones comerciales de manera eficiente."
+              data-features="Interfaz intuitiva para la gestión de ventas.|Diseño moderno y minimalista.|Sistema de inventario integrado."
+              data-video=""
+              data-github="https://github.com/willwolfs/Dolce">
+              Ver Demo &rarr;
+            </button>
+            <a href="https://github.com/willwolfs/Dolce" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tarjeta Proyecto 4 -->
+      <article class="project-card" data-category="experimentos">
+        <div class="project-thumb-wrap">
+          <img src="image/snorlax.jpg" alt="Procedural Lo-Fi Soundscapes" class="project-thumb">
+        </div>
+        <div class="project-details">
+          <div class="project-tags">
+            <span class="tech-tag">Web Audio API</span>
+            <span class="tech-tag">Synthesizer</span>
+            <span class="tech-tag">Cyberpunk UI</span>
+          </div>
+          <h3 class="project-title">Procedural Lo-Fi Soundscapes</h3>
+          <p class="project-description">
+            Generador procedimental de atmósferas musicales y sintetizador de acordes Lo-Fi en tiempo real sin requerir archivos de audio pesados.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn project-btn-primary open-demo-btn"
+              data-title="Procedural Lo-Fi Soundscapes"
+              data-tags="Web Audio API, DSP, Oscillator Nodes"
+              data-desc="Motor de síntesis sonora que genera progresiones armónicas de jazz y acordes Lo-Fi directamente en el hilo de audio del navegador. Aplica filtros pasa-bajas cálidos y reverberación por convolución matemática."
+              data-features="Generación matemática de frecuencias sonoras en tiempo real|Ecualizador visual sincronizado por audio|Cero consumo de ancho de banda y latencia ultra baja"
+              data-video="https://assets.mixkit.co/videos/preview/mixkit-dj-adjusting-the-sound-at-a-party-41716-large.mp4"
+              data-github="https://github.com/willwolfs">
+              Ver Demo &rarr;
+            </button>
+            <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tarjeta Proyecto 5 -->
+      <article class="project-card" data-category="frontend">
+        <div class="project-thumb-wrap">
+          <img src="image/Gemini_Generated_Image_t98cxut98cxut98c.jpeg" alt="Cyber Glass UI Design Kit" class="project-thumb">
+        </div>
+        <div class="project-details">
+          <div class="project-tags">
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">UI/UX</span>
+            <span class="tech-tag">Design System</span>
+          </div>
+          <h3 class="project-title">Cyber Glass UI Design Kit</h3>
+          <p class="project-description">
+            Sistema de diseño en Figma con componentes atómicos, tokens de color neón, tipografías y prototipos interactivos de alta fidelidad.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn project-btn-primary open-demo-btn"
+              data-title="Cyber Glass UI Design Kit"
+              data-tags="Figma, Auto-Layout 5.0, Design Tokens"
+              data-desc="Kit de diseño UI/UX completo construido con auto-layout avanzado, variantes de componentes y tokens semánticos sincronizados con código CSS. Diseñado para acelerar la creación de aplicaciones web con estética futurista."
+              data-features="Más de 80 componentes configurables con variantes|Guía de estilos completa con tipografía y paleta cromática|Prototipos navegables listos para pruebas de usabilidad"
+              data-video="https://assets.mixkit.co/videos/preview/mixkit-creative-team-working-on-a-digital-project-41714-large.mp4"
+              data-github="https://github.com/willwolfs">
+              Ver Demo &rarr;
+            </button>
+            <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tarjeta Proyecto 6 -->
+      <article class="project-card" data-category="experimentos">
+        <div class="project-thumb-wrap">
+          <img src="image/pika2.jpg" alt="3D Holographic Perspective Engine" class="project-thumb">
+        </div>
+        <div class="project-details">
+          <div class="project-tags">
+            <span class="tech-tag">CSS 3D</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Physics</span>
+          </div>
+          <h3 class="project-title">3D Holographic Perspective Engine</h3>
+          <p class="project-description">
+            Motor de perspectiva y profundidad 3D interactivo que calcula dinámicamente la posición del cursor para generar reflejos holográficos.
+          </p>
+          <div class="project-actions">
+            <button class="project-btn project-btn-primary open-demo-btn"
+              data-title="3D Holographic Perspective Engine"
+              data-tags="CSS 3D Transforms, Pointer Events, Glare Physics"
+              data-desc="Experimento de física visual que transforma tarjetas planas en objetos tridimensionales interactivos. Calcula ángulos de inclinación (pitch y roll) y desplaza reflejos dinámicos con aceleración por GPU."
+              data-features="Cálculo matemático de vectores de inclinación en tiempo real|Capas holográficas con gradientes y aberración cromática|Soporte multi-dispositivo y acelerómetro en móviles"
+              data-video="https://assets.mixkit.co/videos/preview/mixkit-hand-typing-on-a-laptop-keyboard-41315-large.mp4"
+              data-github="https://github.com/willwolfs">
+              Ver Demo &rarr;
+            </button>
+            <a href="https://github.com/willwolfs" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
   <!-- Sección 3: Línea de Tiempo de Experiencias & Habilidades -->
   <section class="timeline-section">
     <div class="timeline-header">
@@ -402,6 +595,61 @@
   </section>
 
 </main>
+
+  <!-- Modal de Video Demostración (2 Columnas: Descripción a la Izquierda, Video a la Derecha) -->
+  <div class="demo-modal-overlay" id="demoModal" aria-hidden="true">
+    <div class="demo-modal-window">
+      <!-- Botón de Cerrar Modal -->
+      <button class="modal-close-btn" id="closeModalBtn" title="Cerrar ventana">&times;</button>
+
+      <div class="demo-modal-grid">
+        <!-- Columna Izquierda: Información del Proyecto -->
+        <div class="demo-info-col">
+          <div class="demo-modal-badge">
+            <span class="demo-dot"></span>
+            <span>DEMOSTRACIÓN EN VIVO</span>
+          </div>
+
+          <h3 class="demo-modal-title" id="modalProjectTitle">Título del Proyecto</h3>
+          
+          <div class="demo-tags-wrap" id="modalProjectTags">
+            <!-- Tags inyectados dinámicamente -->
+          </div>
+
+          <div class="demo-desc-block">
+            <h4 class="demo-block-title">Descripción</h4>
+            <p class="demo-modal-desc" id="modalProjectDesc">
+              Descripción del proyecto...
+            </p>
+          </div>
+
+          <div class="demo-features-block">
+            <h4 class="demo-block-title">Aspectos Destacados</h4>
+            <ul class="demo-features-list" id="modalProjectFeatures">
+              <!-- Lista inyectada dinámicamente -->
+            </ul>
+          </div>
+
+          <div class="demo-modal-actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary" id="modalGithubBtn">
+              Ver en GitHub &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Reproductor de Video del Demo -->
+        <div class="demo-video-col">
+          <div class="video-container-wrap">
+            <video id="modalVideoPlayer" class="demo-video-player" controls playsinline loop preload="metadata">
+              <source src="" type="video/mp4" id="modalVideoSource">
+              Tu navegador no soporta la reproducción de video.
+            </video>
+            <div class="video-frame-glow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
