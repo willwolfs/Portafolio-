@@ -451,72 +451,376 @@ body {
   text-decoration: underline;
 }
 
-/* Columna Derecha: Foto de Perfil en Círculo Estilo Miami */
-.hero-photo-col {
+/* =========================================================
+   Columna Derecha: Carnet de Desarrollador / VIP Pass
+   ========================================================= */
+.hero-carnet-col {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   padding: 10px;
+  perspective: 1200px;
 }
 
-.profile-circle-wrapper {
-  position: relative;
-  width: clamp(260px, 28vw, 340px);
-  height: clamp(260px, 28vw, 340px);
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, var(--miami-cyan) 0%, var(--miami-pink) 100%);
-  box-shadow: 
-    0 0 35px rgba(0, 229, 255, 0.45),
-    0 0 70px rgba(255, 42, 133, 0.25),
-    0 20px 45px rgba(0, 0, 0, 0.85);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.carnet-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.profile-circle-wrapper::before {
+.carnet-container:hover {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+/* Cinta y Gancho del Carnet (Lanyard Clip) */
+.carnet-strap-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -10px;
+}
+
+.carnet-strap {
+  width: 32px;
+  height: 28px;
+  background: repeating-linear-gradient(
+    45deg,
+    #1e293b,
+    #1e293b 4px,
+    #0f172a 4px,
+    #0f172a 8px
+  );
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.carnet-clip {
+  width: 24px;
+  height: 18px;
+  background: linear-gradient(180deg, #94a3b8 0%, #475569 50%, #1e293b 100%);
+  border-radius: 3px 3px 6px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clip-metal {
+  width: 12px;
+  height: 6px;
+  border: 1.5px solid #cbd5e1;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Tarjeta / Carnet */
+.carnet-card {
+  width: 100%;
+  background: linear-gradient(165deg, rgba(17, 24, 43, 0.95) 0%, rgba(9, 13, 26, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 16px 20px 20px;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Resplandor diagonal de acabado plástico / acrílico */
+.carnet-card::after {
   content: '';
   position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--miami-cyan), var(--miami-pink));
-  z-index: -1;
-  opacity: 0.6;
-  filter: blur(14px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 55%
+  );
+  pointer-events: none;
+  transform: rotate(-15deg);
+  transition: transform 0.6s ease;
 }
 
-.profile-circle-wrapper:hover {
-  transform: scale(1.04);
-  box-shadow: 
-    0 0 50px rgba(255, 42, 133, 0.65),
-    0 0 90px rgba(0, 229, 255, 0.4),
-    0 25px 50px rgba(0, 0, 0, 0.9);
+.carnet-container:hover .carnet-card::after {
+  transform: rotate(-15deg) translateY(15%);
 }
 
-.profile-circle-wrapper:hover::before {
-  opacity: 1;
-  transform: scale(1.08);
+/* Ranura troquelada para la pinza */
+.carnet-slot {
+  width: 46px;
+  height: 7px;
+  background: #04060d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  margin: 0 auto 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
-.profile-circle-img {
+/* Cabecera del Carnet */
+.carnet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.carnet-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.carnet-dept-tag {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #f1f5f9;
+}
+
+.carnet-pass-type {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.62rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+/* Chip EMV de Seguridad */
+.carnet-chip {
+  width: 32px;
+  height: 24px;
+  background: linear-gradient(135deg, #d4af37 0%, #fef08a 50%, #a16207 100%);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.chip-pattern {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  position: relative;
+}
+
+.chip-pattern::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.chip-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Foto del Carnet (Limpia y Profesional, estilo identificación) */
+.carnet-photo-box {
+  width: 100%;
+  height: 210px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #02040a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.carnet-photo-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  background: #060919;
-  border: 3px solid #060919;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: contrast(1.03) brightness(0.98);
+  transition: transform 0.4s ease;
 }
 
-.profile-circle-wrapper:hover .profile-circle-img {
+.carnet-container:hover .carnet-photo-img {
   transform: scale(1.03);
 }
+
+.carnet-status-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 12, 22, 0.88);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  color: #4ade80;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Identidad en el Carnet */
+.carnet-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.carnet-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.carnet-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Metadata Grid */
+.carnet-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.58rem;
+  color: #64748b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.meta-val {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: #f1f5f9;
+  font-weight: 700;
+}
+
+/* Pie del Carnet: Código de Barras y Holograma */
+.carnet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.carnet-barcode {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.barcode-lines {
+  width: 140px;
+  height: 22px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffffff 0px,
+    #ffffff 2px,
+    transparent 2px,
+    transparent 4px,
+    #ffffff 4px,
+    #ffffff 5px,
+    transparent 5px,
+    transparent 7px,
+    #ffffff 7px,
+    #ffffff 10px,
+    transparent 10px,
+    transparent 13px,
+    #ffffff 13px,
+    #ffffff 14px,
+    transparent 14px,
+    transparent 16px
+  );
+  opacity: 0.85;
+}
+
+.barcode-number {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: #64748b;
+}
+
+.carnet-holo-badge {
+  background: linear-gradient(135deg, #38bdf8 0%, #c084fc 50%, #f472b6 100%);
+  color: #040714;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
 
 
 /* Contenedor Inferior */
@@ -960,7 +1264,7 @@ body {
     gap: 36px;
   }
 
-  .hero-photo-col {
+  .hero-carnet-col {
     margin: 10px auto;
   }
 }
