@@ -55,15 +55,15 @@
 
 .filter-btn:hover {
   color: #ffffff;
-  border-color: rgba(225, 6, 0, 0.4);
+  border-color: rgba(0, 210, 255, 0.45);
   transform: translateY(-2px);
 }
 
 .filter-btn.active {
-  background: rgba(225, 6, 0, 0.12);
-  color: var(--cyan-neon);
-  border-color: var(--cyan-neon);
-  box-shadow: 0 0 12px rgba(225, 6, 0, 0.25);
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+  border-color: #00d2ff;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.35);
 }
 
 /* Grid de Tarjetas Bento Asimétrico */
@@ -73,10 +73,10 @@
   gap: 28px;
 }
 
-/* Tarjeta de Proyecto Aerodinámica (Estilo F1 Monocoque) */
+/* Tarjeta de Proyecto Aerodinámica (Estilo Ocean Bento) */
 .project-card {
-  background: rgba(13, 15, 22, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(6, 18, 38, 0.82);
+  border: 1px solid rgba(56, 189, 248, 0.12);
   border-radius: 22px 6px 22px 6px; /* Corte asimétrico aerodinámico */
   overflow: hidden;
   display: flex;
@@ -88,7 +88,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* Franja superior estilo Livery Ferrari (Rosso Corsa + Giallo Modena) */
+/* Franja superior estilo Océano & Oleaje (Deep Navy + Cyan Wave) */
 .project-card::before {
   content: '';
   position: absolute;
@@ -96,22 +96,22 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #e10600 0%, #ffcc00 55%, transparent 100%);
-  opacity: 0.65;
+  background: linear-gradient(90deg, #0077b6 0%, #00d2ff 60%, transparent 100%);
+  opacity: 0.7;
   transition: all 0.3s ease;
   z-index: 3;
 }
 
 .project-card:hover {
-  border-color: rgba(225, 6, 0, 0.45);
+  border-color: rgba(0, 210, 255, 0.45);
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(225, 6, 0, 0.2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 210, 255, 0.2);
 }
 
 .project-card:hover::before {
   opacity: 1;
   height: 3.5px;
-  background: linear-gradient(90deg, #e10600 0%, #ffcc00 45%, #ffffff 90%);
+  background: linear-gradient(90deg, #0077b6 0%, #00d2ff 45%, #ffffff 90%);
 }
 
 /* Dorsal de Carrera de Telemetría (01, 02, etc.) */
@@ -132,7 +132,7 @@
 }
 
 .project-card:hover .racing-dorsal {
-  color: rgba(255, 204, 0, 0.2);
+  color: rgba(0, 210, 255, 0.25);
   transform: scale(1.08) translateY(-2px);
 }
 
