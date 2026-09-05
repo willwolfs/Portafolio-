@@ -207,13 +207,86 @@
 /* Botones de Acción dentro del Poster */
 .poster-overlay .project-actions {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   width: 100%;
   margin: 0;
   padding: 0;
   border: none;
 }
 
+/* Botones con Íconos (Reproductor y GitHub) */
+.project-icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  flex-shrink: 0;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.project-icon-btn svg {
+  pointer-events: none;
+}
+
+/* Botón Reproductor (Play Demo) */
+.play-icon-btn {
+  background: #00e5ff;
+  color: #040714;
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.45);
+}
+
+.play-icon-btn svg {
+  margin-left: 2px; /* Centrado óptico del triángulo */
+  transition: transform 0.25s ease;
+}
+
+.play-icon-btn:hover {
+  background: #ffffff;
+  color: #040714;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.85), 0 0 10px rgba(255, 255, 255, 0.9);
+  transform: translateY(-4px) scale(1.1);
+}
+
+.play-icon-btn:hover svg {
+  transform: scale(1.15);
+}
+
+/* Botón GitHub */
+.github-icon-btn {
+  background: rgba(13, 18, 36, 0.85);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.github-icon-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.github-icon-btn:hover {
+  background: rgba(20, 28, 55, 0.95);
+  border-color: #00e5ff;
+  color: #00e5ff;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+  transform: translateY(-4px) scale(1.1);
+}
+
+.github-icon-btn:hover svg {
+  transform: scale(1.15);
+}
+
+/* Estilos de botones de texto (usados en modal y proyectos.html) */
 .project-btn {
   flex: 1;
   display: inline-flex;
