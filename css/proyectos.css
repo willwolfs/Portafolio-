@@ -91,33 +91,33 @@
 
 /* ===================================================
    GRID DE POSTERS DE DISEÑO GRÁFICO (POSTER DESIGNS)
+   (Solo imágenes completas y botones de acción)
    =================================================== */
 .projects-grid.poster-grid,
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 28px;
   width: 100%;
 }
 
-/* Tarjeta de Proyecto Estilo Poster de Galería / Festival */
+/* Tarjeta / Poster de Galería */
 .project-card.poster-card,
 .project-card {
-  background: #090e1d;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-  padding: 14px;
   position: relative;
+  border-radius: 14px;
   overflow: hidden;
+  background: #080c18;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    0 18px 45px rgba(0, 0, 0, 0.8), 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
-/* Efecto reflejo satinado de papel de poster al pasar cursor */
+/* Efecto de luz satinada que pasa sobre el papel del poster */
 .project-card::after {
   content: '';
   position: absolute;
@@ -127,254 +127,138 @@
   height: 220%;
   background: linear-gradient(
     135deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.03) 47%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 53%
+    transparent 42%,
+    rgba(255, 255, 255, 0.04) 47%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 54%
   );
   transform: rotate(-18deg);
   pointer-events: none;
-  transition: transform 0.6s ease;
+  transition: transform 0.65s ease;
+  z-index: 3;
 }
 
 .project-card:hover {
-  transform: translateY(-8px) scale(1.012);
-  border-color: rgba(0, 229, 255, 0.45);
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(0, 229, 255, 0.5);
   box-shadow: 
-    0 24px 50px rgba(0, 0, 0, 0.9), 
-    0 0 35px rgba(0, 229, 255, 0.22);
+    0 26px 55px rgba(0, 0, 0, 0.9), 
+    0 0 35px rgba(0, 229, 255, 0.28);
 }
 
 .project-card:hover::after {
-  transform: rotate(-18deg) translateY(18%);
+  transform: rotate(-18deg) translateY(22%);
 }
 
-.poster-inner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Barra superior del Poster */
-.poster-top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 8px;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
-}
-
-.poster-issue {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  color: #00e5ff;
-}
-
-.poster-badge-stamp {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #94a3b8;
-  text-transform: uppercase;
-}
-
-/* Marco / Fotografía del Poster */
-.poster-frame,
-.project-thumb-wrap {
+/* Marco del Poster (Proporción vertical de poster) */
+.poster-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 11;
-  border-radius: 8px;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: #04060c;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+  display: flex;
 }
 
-.poster-img,
-.project-thumb {
+/* Imagen completa que ocupa todo el poster */
+.poster-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: contrast(1.04) brightness(0.95);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: contrast(1.03) brightness(0.96);
 }
 
-.project-card:hover .poster-img,
-.project-card:hover .project-thumb {
+.project-card:hover .poster-img {
   transform: scale(1.05);
   filter: contrast(1.06) brightness(1.02);
 }
 
-/* Sello / Etiqueta artística sobre la imagen (Estilo Poster / Album) */
-.poster-art-tag {
+/* Overlay inferior con degradado suave para los botones */
+.poster-overlay {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
-  background: rgba(4, 7, 18, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #f1f5f9;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 3px 8px;
-  border-radius: 4px;
-  backdrop-filter: blur(8px);
-}
-
-/* Cuerpo del Poster */
-.poster-body,
-.project-details {
+  inset: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  flex-grow: 1;
+  justify-content: flex-end;
+  padding: 20px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(4, 7, 18, 0.95) 0%,
+    rgba(4, 7, 18, 0.6) 35%,
+    rgba(4, 7, 18, 0.1) 60%,
+    transparent 100%
+  );
+  z-index: 2;
+  transition: background 0.3s ease;
 }
 
-.poster-meta-tags,
-.project-tags {
+.project-card:hover .poster-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(4, 7, 18, 0.98) 0%,
+    rgba(4, 7, 18, 0.75) 45%,
+    rgba(4, 7, 18, 0.15) 75%,
+    transparent 100%
+  );
+}
+
+/* Botones de Acción dentro del Poster */
+.poster-overlay .project-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 2px;
-}
-
-.poster-meta-tags .tech-tag,
-.project-tags .tech-tag {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #00e5ff;
-  background: rgba(0, 229, 255, 0.08);
-  border: 1px solid rgba(0, 229, 255, 0.22);
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.3px;
-}
-
-.poster-title,
-.project-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.poster-desc,
-.project-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.55;
-  color: #94a3b8;
-  margin: 0;
-  flex-grow: 1;
-}
-
-/* Acciones del Poster */
-.project-card .project-actions {
-  display: flex;
-  align-items: center;
   gap: 10px;
-  margin-top: 8px;
-  padding-top: 12px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .project-btn {
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 6px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .project-btn-primary {
-  background: #ffffff;
-  color: #060914;
+  background: #00e5ff;
+  color: #040714;
   border: none;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 229, 255, 0.35);
 }
 
 .project-btn-primary:hover {
-  background: #00e5ff;
-  color: #04060f;
-  box-shadow: 0 0 16px rgba(0, 229, 255, 0.6);
+  background: #ffffff;
+  color: #040714;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
 }
 
 .project-btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: #cbd5e1;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(13, 18, 36, 0.85);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
 }
 
 .project-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #00e5ff;
+  color: #00e5ff;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.3);
   transform: translateY(-2px);
-}
-
-/* Tira Inferior: Código de Barras y Serial de Edición Gráfica */
-.poster-bottom-strip {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 8px;
-  margin-top: 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.poster-mini-barcode {
-  width: 90px;
-  height: 14px;
-  background: repeating-linear-gradient(
-    90deg,
-    #94a3b8 0px,
-    #94a3b8 1.5px,
-    transparent 1.5px,
-    transparent 3px,
-    #94a3b8 3px,
-    #94a3b8 4px,
-    transparent 4px,
-    transparent 6px,
-    #94a3b8 6px,
-    #94a3b8 8px,
-    transparent 8px,
-    transparent 10px,
-    #94a3b8 10px,
-    #94a3b8 11px,
-    transparent 11px,
-    transparent 13px
-  );
-  opacity: 0.6;
-}
-
-.poster-serial-code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.58rem;
-  color: #64748b;
-  letter-spacing: 1.5px;
 }
 
 /* Responsive Poster Grid */
@@ -386,11 +270,11 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 640px) {
   .projects-grid.poster-grid,
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 22px;
   }
 
   .projects-section {
@@ -398,6 +282,7 @@
     padding: 0 16px;
   }
 }
+
 
 
 /* ===================================================
