@@ -1,4 +1,4 @@
-﻿/* ===================================================
+/* ===================================================
    ESTILOS ESPECÃFICOS PARA LA PÃGINA DE PROYECTOS
    (Minimalista, Glassmorphism & Cyberpunk Elegante)
    =================================================== */
@@ -134,9 +134,9 @@
   font-family: 'Fira Code', monospace;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--cyan-neon);
-  background: rgba(225, 6, 0, 0.08);
-  border: 1px solid rgba(225, 6, 0, 0.2);
+  color: var(--ferrari-yellow);
+  background: rgba(255, 204, 0, 0.08);
+  border: 1px solid rgba(255, 204, 0, 0.25);
   padding: 3px 8px;
   border-radius: 6px;
   letter-spacing: 0.5px;
